@@ -198,7 +198,7 @@
                     renderizarBotoesCategorias();
                     //seleciona a 1º categoria automatico
                     if(categoriasData.length > 0) {
-                        selecionarCategorias(categoriasData[0].id, categoriasData[0].nome);
+                        selecionarCategoria(categoriasData[0].id, categoriasData[0].nome);
                     }
                 }catch (error) {
                     console.error('Erro ao carregar categorias: '. error);
@@ -213,10 +213,10 @@
                     const btn = document.createElement('button');
                         btn.className = `snap-start px-4 py-4 py-1 rounded-full font-bold text-sm transition-all duration-150 cursor-pointer flex-shrink-0 btn-cat`;
                         btn.innerText = cat.nome;
-                        btn.onclick = () => selecionarCategorias(cat.id, cat.nome);
+                        btn.onclick = () => selecionarCategoria(cat.id, cat.nome);
                         btn.dataset.id = cat.id;
-                        navCategorias.id = cat.id; 
-                })
+                        navCategorias.appendChild(btn); 
+                });
             }
 
             //função para mudar a categoria
@@ -235,6 +235,9 @@
                 });
                 carregarProdutos(id);
             }
+            //mudar dps de arrumar
+            
+
             carregarCategorias();
         </script>
 
